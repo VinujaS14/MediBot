@@ -1,0 +1,23 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+# Define pairs of patterns and responses
+pairs = [
+    ['(hi|hello|hey)', ['Hello, how can I assist you?']],
+    ['(.*) your name?', ['I am a chatbot, you can call me MediBot.']],
+    ['(.*) (medication|drug)', ['I can provide information about medications. What specific medication are you interested in?']],
+    ['(.*) thank you (.*)', ['You\'re welcome!']],
+    ['bye', ['Goodbye! Take care.']],
+]
+
+# Create a Chat instance
+chatbot = Chat(pairs, reflections)
+
+# Start conversation
+print("Welcome to MediBot. Type 'bye' to exit.")
+while True:
+    user_input = input('You: ')
+    if user_input.lower() == 'bye':
+        break
+    else:
+        print('MediBot:', chatbot.respond(user_input))
