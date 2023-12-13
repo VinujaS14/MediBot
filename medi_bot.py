@@ -1,10 +1,8 @@
 import pandas as pd
 
-# Load drug information dataset
-drug_data = pd.read_csv('drug_information.csv')  # Replace with your drug dataset filename
-
-# Load dialog dataset
-dialog_data = pd.read_csv('dialog_talk_agent.csv')  # Replace with your dialog dataset filename
+# Try different encodings for reading the CSV files
+drug_data = pd.read_csv('drug_information.csv', encoding='latin1', dtype=str)
+dialog_data = pd.read_csv('dialog_talk_agent.csv', encoding='ISO-8859-1', dtype=str)
 
 # Extract relevant columns
 drug_columns = ['name', 'substitute0', 'substitute1', 'sideEffect0', 'sideEffect1', 'use0', 'use1',
